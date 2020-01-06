@@ -27,7 +27,13 @@ requirements: test_environment
 
 ## Make Dataset
 data: requirements
+	wget 'ftp://echanges.dila.gouv.fr/INCA/Freemium_inca_global_20180315-170000.tar.gz' -P data/raw/INCA/zip
+	tar xzf data/raw/INCA/zip/Freemium_inca_global_20180315-170000.tar.gz -C data/raw/extract
 	$(PYTHON_INTERPRETER) src/data/make_dataset.py data/raw data/processed
+
+## Make Run
+run : requirements
+	$(PYTHON_INTERPRETER) src/features/build_features.py
 
 ## Delete all compiled Python files
 clean:

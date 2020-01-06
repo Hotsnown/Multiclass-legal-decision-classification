@@ -1,7 +1,12 @@
-project_name
+Multiclass french legal judgments classification
 ==============================
 
-A short description of the project.
+This project showcase the use of LSTM to classify the Cour de Cassation's non published rulings.
+The predicted categories are :
+- criminal law
+- civil law
+- commercial law
+- social law
 
 Project Organization
 ------------
