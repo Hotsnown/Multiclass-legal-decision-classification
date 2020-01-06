@@ -13,16 +13,21 @@ Python3
 Running:
 $ make all
 
-Tested under Debian10
-
 Project Specs
 ------------
-dataset : 'INCA' 400 000 rulings
+dataset : 'INCA' (400 000 rulings)
 predicted categories :
 - criminal law
 - civil law
 - commercial law
 - social law
+
+Computer architecture: CPU (Intel)
+Operating system: Debian10 (linux)
+Software toolchain: Compilers, interpreters, command shell, programming languages (C, Perl, Python, etc.), database backends, data analysis software
+Supporting software / infrastructure: Libraries, R packages, dependencies
+External dependencies: Web sites, data repositories, remote databases, software repositories
+Version numbers: Ideally, for everything (if available)
 
 Project Organization
 ------------
