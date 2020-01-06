@@ -1,8 +1,24 @@
 Multiclass french legal judgments classification
 ==============================
 
-This project showcase the use of LSTM to classify the Cour de Cassation's non published rulings.
-The predicted categories are :
+This project showcase the use of [LSTM](https://en.wikipedia.org/wiki/Long_short-term_memory) to classify Cour de Cassation's non published rulings.
+
+Project Set up
+------------
+
+Requirements:
+4Go disk space
+Python3
+
+Running:
+$ make all
+
+Tested under Debian10
+
+Project Specs
+------------
+dataset : 'INCA' 400 000 rulings
+predicted categories :
 - criminal law
 - civil law
 - commercial law

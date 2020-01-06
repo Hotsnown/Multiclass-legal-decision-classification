@@ -35,7 +35,7 @@ def extract_data():
         
         parsed_data.append(parsed_cleaned_json)
     
-    countdown = len(Path('data/raw/extract').rglob('*.xml'))
+    countdown = len(list(Path('data/raw/extract').rglob('*.xml')))
     for file in Path('data/raw/extract').rglob('*.xml'):
         countodown = countdown - 1
         print('items left : ', countdown, 'parsing : ', file)
