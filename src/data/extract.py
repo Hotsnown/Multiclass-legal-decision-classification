@@ -37,7 +37,7 @@ def extract_data():
     
     countdown = len(list(Path('data/raw/extract').rglob('*.xml')))
     for file in Path('data/raw/extract').rglob('*.xml'):
-        countodown = countdown - 1
+        countdown = countdown - 1
         print('items left : ', countdown, 'parsing : ', file)
         parse_XML(file)
 

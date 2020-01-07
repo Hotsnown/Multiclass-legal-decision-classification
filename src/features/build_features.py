@@ -11,14 +11,14 @@ from keras.callbacks import EarlyStopping
 
 data = pd.read_csv('data/processed/output.csv')
 
+print(data.formation.value_counts())
 data.loc[(data['formation'] == 'CHAMBRE_CIVILE_1') | (data['formation'] == 'CHAMBRE_CIVILE_2') | (data['formation'] == 'CHAMBRE_CIVILE_3'), 'LABEL'] = 0
 data.loc[data['formation'] == 'CHAMBRE_CRIMINELLE', 'LABEL'] = 1
 data.loc[data['formation'] == 'CHAMBRE_SOCIALE', 'LABEL'] = 2
 data.loc[data['formation'] == 'CHAMBRE_COMMERCIALE', 'LABEL'] = 3
-print(data['LABEL'][:10])
 
 labels = to_categorical(data['LABEL'], num_classes=4)
-print(labels[:10])
+
 if 'CATEGORY' in data.keys():
     data.drop(['CATEGORY'], axis=1)
 

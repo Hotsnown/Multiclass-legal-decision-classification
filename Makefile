@@ -25,13 +25,28 @@ requirements: test_environment
 	$(PYTHON_INTERPRETER) -m pip install -U pip setuptools wheel
 	$(PYTHON_INTERPRETER) -m pip install -r requirements.txt
 
+## Make the data set, the make the model
+all:
+	make create_environment
+	make data
+	make run
+
+## Remove all data
+clean_data:
+	rm data/interim/output.csv
+	rm data/processed/output.csv
+	rm -r data/raw/INCA/zip
+	rm -r data/raw/extract
+	mkdir data/raw/extract
+	mkdir data/raw/INCA/zip
+
 ## Make Dataset
 data: requirements
 	wget 'ftp://echanges.dila.gouv.fr/INCA/Freemium_inca_global_20180315-170000.tar.gz' -P data/raw/INCA/zip
 	tar xzf data/raw/INCA/zip/Freemium_inca_global_20180315-170000.tar.gz -C data/raw/extract
 	$(PYTHON_INTERPRETER) src/data/make_dataset.py data/raw data/processed
 
-## Make Run
+## Build the features, train then test the model
 run : requirements
 	$(PYTHON_INTERPRETER) src/features/build_features.py
 

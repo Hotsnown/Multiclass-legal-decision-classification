@@ -22,12 +22,11 @@ predicted categories :
 - commercial law
 - social law
 
-Computer architecture: CPU (Intel)
-Operating system: Debian10 (linux)
-Software toolchain: Compilers, interpreters, command shell, programming languages (C, Perl, Python, etc.), database backends, data analysis software
-Supporting software / infrastructure: Libraries, R packages, dependencies
-External dependencies: Web sites, data repositories, remote databases, software repositories
-Version numbers: Ideally, for everything (if available)
+- Computer architecture: CPU (Intel)
+- Operating system: Debian10 (linux)
+- Software toolchain: python3
+- Supporting software / infrastructure: keras/tensorflow, make, cookie-cutter datascience
+- Data repository: ftp://echanges.dila.gouv.fr/INCA (accessed 05/01/2019)
 
 Project Organization
 ------------
