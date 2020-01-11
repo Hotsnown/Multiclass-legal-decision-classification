@@ -13,8 +13,17 @@ def wrangle_data():
         print('dropping:', unwanted_formation)
         data = data.drop(data[data['formation'] == unwanted_formation].index)
     
-    print('Writing cleaned data to data/processed/output.csv')
+    print('Writing cleaned data to data/interim/output.csv')
+
+    print(data.formation.value_counts())
+    data.loc[(data['formation'] == 'CHAMBRE_CIVILE_1') | (data['formation'] == 'CHAMBRE_CIVILE_2') | (data['formation'] == 'CHAMBRE_CIVILE_3'), 'LABEL'] = 0
+    data.loc[data['formation'] == 'CHAMBRE_CRIMINELLE', 'LABEL'] = 1
+    data.loc[data['formation'] == 'CHAMBRE_SOCIALE', 'LABEL'] = 2
+    data.loc[data['formation'] == 'CHAMBRE_COMMERCIALE', 'LABEL'] = 3
+
     to_save_data = pd.DataFrame(data)
-    to_save_data.to_csv('data/processed/output.csv', index=False)
+    data.to_csv('data/processed/output.csv', index=False)
 
 wrangle_data()
+
+

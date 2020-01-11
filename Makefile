@@ -38,7 +38,9 @@ clean_data:
 	rm -r data/raw/INCA/zip
 	rm -r data/raw/extract
 	mkdir data/raw/extract
+	touch data/raw/extract/.gitkeep
 	mkdir data/raw/INCA/zip
+	touch data/raw/INCA/zip/.gitkeep
 
 ## Make Dataset
 data: requirements
@@ -49,6 +51,7 @@ data: requirements
 ## Build the features, train then test the model
 run : requirements
 	$(PYTHON_INTERPRETER) src/features/build_features.py
+	$(PYTHON_INTERPRETER) src/models/train_model.py
 
 ## Delete all compiled Python files
 clean:
