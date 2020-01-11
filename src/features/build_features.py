@@ -34,7 +34,7 @@ X = pad_sequences(sequences, maxlen=max_len)
 
 X_train, X_test, y_train, y_test = train_test_split(X , labels, test_size=0.25, random_state=42)
 
-epochs = 10
+epochs = 3
 emb_dim = 128
 batch_size = 256
 labels[:2]
