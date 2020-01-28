@@ -3,6 +3,8 @@ Multiclass french legal judgments classification
 
 This project showcase the use of [LSTM](https://en.wikipedia.org/wiki/Long_short-term_memory) to classify Cour de Cassation's non published rulings.
 
+The use of bash may be an obstacle to windows users.
+
 Project Set up
 ------------
 
