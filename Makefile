@@ -44,6 +44,8 @@ clean_data:
 
 ## Make Dataset
 data: requirements
+	mkdir data
+	mkdir data/raw
 	mkdir data/raw/INCA/zip
 	mkdir data/raw/INCA/zip
 	mkdir data/interim
