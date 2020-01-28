@@ -10,6 +10,9 @@ from keras.utils.np_utils import to_categorical
 from keras.callbacks import EarlyStopping
 import pickle 
 
+from src.features.build_features import *
+from src.visualization.visualize import show_loss_and_acc
+
 labels = build_labels()
 X = build_tokens()
 
@@ -20,6 +23,7 @@ epochs = 3
 emb_dim = 128
 batch_size = 256
 labels[:2]
+n_most_common_words = 8000
 
 print((X_train.shape, y_train.shape, X_test.shape, y_test.shape))
 
@@ -34,9 +38,11 @@ history = model.fit(X_train, y_train, epochs=epochs, batch_size=batch_size,valid
 
 accr = model.evaluate(X_test,y_test)
 print('Test set\n  Loss: {:0.3f}\n  Accuracy: {:0.3f}'.format(accr[0],accr[1]))
-  
+
 model_to_pickle = open("models/saved_model.pickle","wb")
 pickle.dump(model, model_to_pickle)
 model_to_pickle.close()
 
 model_from_pickle = pickle.load(open("models/saved_model.pickle", "rb"))
+
+model.save(f"models/legal-case-classifierV1.h5")

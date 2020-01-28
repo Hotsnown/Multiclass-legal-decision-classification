@@ -2,6 +2,9 @@ import matplotlib.pyplot as plt
 import seaborn as sns 
 from sklearn.metrics import confusion_matrix
 from sklearn import metrics
+import pandas as pd
+
+data = pd.read_csv('data/processed/output.csv')
 
 def show_loss_and_acc():
     acc = history.history['acc']
@@ -26,16 +29,18 @@ def show_loss_and_acc():
     plt.show()
 
 def show_confusion_matrix(y_test, y_pred):
+    chambres = ["Civil Law", "Criminal Law", "Labour Law", "Commercial Law"]
     y_pred = (y_pred > 0.5)
     conf_mat = confusion_matrix(y_test.argmax(axis=1), y_pred.argmax(axis=1))
     fig, ax = plt.subplots(figsize=(10,10))
     sns.heatmap(conf_mat, annot=True, fmt='d',
-                xticklabels=data.LABEL.values, yticklabels=data.LABEL.values)
+                xticklabels=chambres, yticklabels=chambres)
     plt.ylabel('Actual')
     plt.xlabel('Predicted')
     plt.title("CONFUSION MATRIX \n", size=16);
     plt.show()
 
 def show_metrics(y_test, y_pred):
+    y_pred = (y_pred > 0.5)
     print('\t\t\t\tCLASSIFICATIION METRICS\n')
-    print(metrics.classification_report(y_test, y_pred, ))
+    print(metrics.classification_report(y_test.argmax(axis=1), y_pred.argmax(axis=1)))

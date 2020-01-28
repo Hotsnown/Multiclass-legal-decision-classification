@@ -44,6 +44,10 @@ clean_data:
 
 ## Make Dataset
 data: requirements
+	mkdir data/raw/INCA/zip
+	mkdir data/raw/INCA/zip
+	mkdir data/interim
+	mkdir data/processed
 	wget 'ftp://echanges.dila.gouv.fr/INCA/Freemium_inca_global_20180315-170000.tar.gz' -P data/raw/INCA/zip
 	tar xzf data/raw/INCA/zip/Freemium_inca_global_20180315-170000.tar.gz -C data/raw/extract
 	$(PYTHON_INTERPRETER) src/data/make_dataset.py data/raw data/processed
