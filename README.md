@@ -1,3 +1,6 @@
+Please refer to the **report** folder for further informations.
+
+
 Multiclass french legal judgments classification
 ==============================
 
@@ -13,8 +16,9 @@ Requirements:
 Python3
 
 Running:
+```
 $ make all
-
+```
 Project Specs
 ------------
 dataset : 'INCA' (400 000 rulings)
@@ -24,6 +28,7 @@ predicted categories :
 - commercial law
 - social law
 
+Misc:
 - Computer architecture: CPU (Intel)
 - Operating system: Debian10 (linux)
 - Software toolchain: python3
